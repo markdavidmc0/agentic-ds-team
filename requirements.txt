@@ -1,6 +1,0 @@
-# requirements.txt for local and AWS deployment
-streamlit
-streamlit-drawable-canvas
-tensorflow
-numpy
-requests

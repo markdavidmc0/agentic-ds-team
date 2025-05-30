@@ -1,5 +1,5 @@
-# arch-to-iac
-Text to Arch - Arch to Infrastructure as Code
+# agentic-ds-team
+Agentic DS Team Experiment
 
 ## Overview
 This repository provides infrastructure-as-code (IaC) for deploying an agentic Data Science team for fraud detection, supporting both AWS (Bedrock, SageMaker, S3) and GCP (Vertex AI, GCS). The architecture enables full DS lifecycle automation, from data discovery to model deployment, using modular Terraform code.

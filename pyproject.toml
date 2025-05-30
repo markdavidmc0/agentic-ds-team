@@ -5,9 +5,49 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "numpy>=2.1.3",
-    "pandas>=2.2.3",
-    "streamlit>=1.45.1",
-    "streamlit-drawable-canvas>=0.9.3",
-    "tensorflow>=2.19.0",
+    "streamlit",
+    "requests",
+    "numpy",
+    "tensorflow",
+    "streamlit-drawable-canvas",
+    "polars",
+    "Diagrams",
+    "google-cloud-storage",
+    "google-cloud-aiplatform",
 ]
+
+[project.optional-dependencies]
+dev = [
+    "flake8",
+    "black",
+    "pytest",
+    "mypy",
+    "pre-commit",
+    "ruff",
+]
+
+[tool.black]
+line-length = 88
+target-version = ["py311", "py312"]
+
+[tool.ruff]
+line-length = 88
+select = ["E", "F", "B", "I", "UP", "C90", "N", "D", "ANN", "S", "A", "C4", "DTZ", "EM", "ERA", "ICN", "INP", "PIE", "PT", "Q", "RET", "RSE", "RUF", "SIM", "TCH", "TID", "TRY", "ARG", "PL", "NPY", "PD", "PGH", "PTH", "PYI", "RSE", "RUF", "SIM", "TCH", "TID", "TRY"]
+ignore = ["E501"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
+
+[tool.mypy]
+python_version = "3.12"
+ignore_missing_imports = true
+strict = true
+
+[tool.pytest.ini_options]
+addopts = "-ra -q"
+testpaths = ["tests"]
+
+[tool.isort]
+profile = "black"
