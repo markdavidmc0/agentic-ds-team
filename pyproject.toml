@@ -18,8 +18,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
-    "flake8",
-    "black",
+
     "pytest",
     "mypy",
     "pre-commit",
@@ -32,7 +31,7 @@ target-version = ["py311", "py312"]
 
 [tool.ruff]
 line-length = 88
-select = ["E", "F", "B", "I", "UP", "C90", "N", "D", "ANN", "S", "A", "C4", "DTZ", "EM", "ERA", "ICN", "INP", "PIE", "PT", "Q", "RET", "RSE", "RUF", "SIM", "TCH", "TID", "TRY", "ARG", "PL", "NPY", "PD", "PGH", "PTH", "PYI", "RSE", "RUF", "SIM", "TCH", "TID", "TRY"]
+select = ["E", "F", "B", "I", "UP", "C90", "N", "D", "ANN", "S", "A", "C4", "DTZ", "EM", "ERA", "ICN", "INP", "PIE", "PT", "Q", "RET", "RSE", "RUF", "SIM", "TID", "TRY", "ARG", "PL", "NPY", "PD", "PGH", "PTH", "PYI", "RSE", "RUF", "SIM", "TID", "TRY"]
 ignore = ["E501"]
 
 [tool.ruff.format]
