@@ -4,9 +4,9 @@
 module "bedrock_agentic_ds_team" {
   source = "aws-ia/bedrock/aws"
   # Team and agent configuration
-  team_name = "fraud-ds-agentic-team"
+  team_name   = "fraud-ds-agentic-team"
   description = "Agentic Data Science team for end-to-end fraud binary classifier lifecycle."
-  
+
   # Agentic team capabilities
   capabilities = [
     "data-discovery",
@@ -19,7 +19,7 @@ module "bedrock_agentic_ds_team" {
 
   # Model type and use case
   model_type = "binary-classifier"
-  use_case  = "fraud-detection"
+  use_case   = "fraud-detection"
 
   # (Optional) S3 bucket for data and artifacts
   s3_bucket_name = module.s3_bucket.bucket_name

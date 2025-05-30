@@ -12,7 +12,7 @@ resource "aws_sagemaker_model" "fraud_classifier" {
     }
   }
   enable_network_isolation = true # Prevents model container from making outbound network calls
-  tags = var.tags
+  tags                     = var.tags
 }
 
 resource "aws_sagemaker_endpoint_configuration" "fraud_classifier" {
@@ -30,7 +30,7 @@ resource "aws_sagemaker_endpoint_configuration" "fraud_classifier" {
 resource "aws_sagemaker_endpoint" "fraud_classifier" {
   name                 = "${var.sagemaker_model_name}-endpoint"
   endpoint_config_name = aws_sagemaker_endpoint_configuration.fraud_classifier.name
-  tags                = var.tags
+  tags                 = var.tags
   # Optionally restrict access using VPC or endpoint policies for least privilege
 }
 

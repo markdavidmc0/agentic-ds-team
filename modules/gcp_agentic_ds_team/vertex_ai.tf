@@ -17,8 +17,8 @@ resource "google_vertex_ai_endpoint" "fraud_classifier" {
 }
 
 resource "google_vertex_ai_endpoint_deployment" "fraud_classifier_deployment" {
-  endpoint     = google_vertex_ai_endpoint.fraud_classifier.id
-  model        = google_vertex_ai_model.fraud_classifier.id
+  endpoint                    = google_vertex_ai_endpoint.fraud_classifier.id
+  model                       = google_vertex_ai_model.fraud_classifier.id
   deployed_model_display_name = "fraud-binary-classifier"
-  traffic_split = { "0" = 100 }
+  traffic_split               = { "0" = 100 }
 }

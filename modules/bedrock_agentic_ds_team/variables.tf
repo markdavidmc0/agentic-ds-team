@@ -14,7 +14,7 @@ variable "description" {
 variable "capabilities" {
   description = "List of DS lifecycle capabilities."
   type        = list(string)
-  default     = [
+  default = [
     "data-discovery",
     "feature-engineering",
     "model-training",

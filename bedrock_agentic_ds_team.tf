@@ -1,18 +1,18 @@
 # Root module to deploy the Agentic Data Science team for fraud detection
 
 module "bedrock_agentic_ds_team" {
-  source  = "./modules/bedrock_agentic_ds_team"
+  source = "./modules/bedrock_agentic_ds_team"
 
-  agent_name        = "fraud-ds-agentic-team"
-  agent_description = "Agentic Data Science team for end-to-end fraud binary classifier lifecycle."
-  foundation_model  = "anthropic.claude-v2"
-  instruction       = "You are a collaborative team of data scientists and ML engineers. Your job is to take a user prompt describing a fraud binary classification experiment, perform data discovery, feature engineering, model training, evaluation, and deploy the best model. You must explain each step and output results."
-  create_agent_alias = true
-  agent_alias_name   = "prod"
-  create_default_kb  = true
+  agent_name            = "fraud-ds-agentic-team"
+  agent_description     = "Agentic Data Science team for end-to-end fraud binary classifier lifecycle."
+  foundation_model      = "anthropic.claude-v2"
+  instruction           = "You are a collaborative team of data scientists and ML engineers. Your job is to take a user prompt describing a fraud binary classification experiment, perform data discovery, feature engineering, model training, evaluation, and deploy the best model. You must explain each step and output results."
+  create_agent_alias    = true
+  agent_alias_name      = "prod"
+  create_default_kb     = true
   create_s3_data_source = true
   tags = {
-    "Project" = "FraudDetection"
+    "Project"     = "FraudDetection"
     "Environment" = "Production"
   }
 
