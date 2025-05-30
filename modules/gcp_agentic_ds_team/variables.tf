@@ -61,3 +61,8 @@ variable "gcp_vertex_model_artifact_gcs_uri" {
   description = "GCS URI for trained model artifact."
   type        = string
 }
+
+variable "gcp_vertex_model_id" {
+  description = "Vertex AI Model resource ID to deploy (must be created outside Terraform or via gcloud/sdk)."
+  type        = string
+}

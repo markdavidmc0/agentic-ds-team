@@ -47,7 +47,7 @@ jobs:
 
       - name: Terraform validate (AWS)
         run: terraform validate
-        working-directory: .
+        working-directory: ./modules/bedrock_agentic_ds_team
 
       - name: Terraform validate (GCP)
         run: terraform validate
