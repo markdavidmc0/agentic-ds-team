@@ -1,9 +1,8 @@
 """Streamlit app for experimentation prompt entry and workflow trigger."""
 import os
+
 import requests
-
 import streamlit as st
-
 
 status_code_ok = 200
 
