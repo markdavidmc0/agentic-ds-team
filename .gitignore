@@ -35,3 +35,49 @@ override.tf.json
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+*.log
+*.pot
+*.mo
+*.coverage
+.coverage.*
+.cache/
+.tox/
+.nox/
+.pytest_cache/
+.mypy_cache/
+.dmypy.json
+.pyre/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Local environment
+.env
+.env.*
+.venv/
+venv/
+ENV/
+
+# Test output
+htmlcov/
+
+# Ruff, Black, and other tool caches
+.ruff_cache/
