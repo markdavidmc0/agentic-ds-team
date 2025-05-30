@@ -36,6 +36,37 @@ This repository provides infrastructure-as-code (IaC) for deploying an agentic D
    terraform apply
    ```
 
+## Downloading Data
+
+To download and prepare data for the project, use one of the provided scripts in the `/scripts` folder:
+
+### Option 1: Download and Unzip from a URL
+
+1. Open a terminal and navigate to the `scripts` directory:
+   ```zsh
+   cd scripts
+   ```
+2. Make the script executable (if not already):
+   ```zsh
+   chmod +x download_and_prepare_data.sh
+   ```
+3. Run the script with the URL of the zip file containing your data:
+   ```zsh
+   ./download_and_prepare_data.sh <zip_url>
+   ```
+   Replace `<zip_url>` with the actual URL to your data zip file. The script will download, unzip, and copy the data into the `/data` folder at the project root.
+
+### Option 2: Use the `data.sh` Script
+
+If you have a custom data preparation workflow or additional steps, use the `data.sh` script. Make it executable and run it as needed:
+
+```zsh
+chmod +x data.sh
+./data.sh
+```
+
+Check the script for any required arguments or environment variables. This script can be customized for more advanced data preparation tasks.
+
 ## Security Best Practices
 - S3/GCS buckets are encrypted, versioned, and block public access.
 - IAM roles use least privilege and session duration limits.
