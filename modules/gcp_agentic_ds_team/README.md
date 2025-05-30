@@ -1,7 +1,12 @@
 # README for GCP Agentic Data Science Team Terraform module
 
 ## Overview
-This module provisions a GCP-based Agentic Data Science team for the full lifecycle of fraud binary classifier models, from data discovery to model deployment. It includes a GCS bucket for data and artifact storage and Vertex AI for model training and serving.
+This module provisions a GCP-based Agentic Data Science team infrastructure for the full lifecycle of fraud detection models, including:
+
+- Raw and processed data storage in GCS buckets
+- BigQuery dataset and table for feature storage
+- Vertex AI Feature Store for managing features
+- Cloud Run service for feature processing
 
 ## Features
 - Agentic team with capabilities: data discovery, feature engineering, model training, evaluation, experiment tracking, and deployment
@@ -13,20 +18,22 @@ This module provisions a GCP-based Agentic Data Science team for the full lifecy
 ```hcl
 module "gcp_agentic_ds_team" {
   source = "./modules/gcp_agentic_ds_team"
-  # Optionally override variables
-  # gcp_fraud_data_bucket_name = "my-ds-bucket"
-  # gcp_location = "us-central1"
-  # gcp_vertex_model_image = "gcr.io/my-project/my-image:latest"
-  # gcp_vertex_model_artifact_gcs_uri = "gs://my-ds-bucket/model/"
+
+  organization_id      = "your-org-id"
+  billing_account_id   = "your-billing-account-id"
+  gcp_fraud_data_bucket_name = "fraud-raw-data"
+  gcp_processed_data_bucket_name = "fraud-processed-data"
+  gcp_location         = "europe-west2"
 }
 ```
 
 ## Outputs
-- `gcp_fraud_data_bucket_name`: The GCS bucket for artifacts
-- `gcp_vertex_ai_endpoint_id`: The Vertex AI endpoint for inference
+- `raw_data_bucket_name`: Name of the GCS bucket for raw data
+- `processed_data_bucket_name`: Name of the GCS bucket for processed data
+- `bigquery_dataset_id`: ID of the BigQuery dataset for fraud features
 
 ## Requirements
-- Google Cloud project with Vertex AI and GCS enabled
+- Google Cloud project with BigQuery, Cloud Storage, and Vertex AI APIs enabled
 - Terraform Google provider
 
 ## Limitations

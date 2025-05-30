@@ -1,68 +1,46 @@
 variable "gcp_fraud_data_bucket_name" {
-  description = "GCS bucket name for fraud data in Parquet format."
+  description = "GCS bucket name for raw fraud data."
   type        = string
-  default     = "fraud-data-parquet-bucket"
+  default     = "fraud-raw-data"
+
+  validation {
+    condition     = length(var.gcp_fraud_data_bucket_name) > 0
+    error_message = "Bucket name must not be empty."
+  }
 }
 
-variable "gcp_fraud_data_local_dir" {
-  description = "Local directory containing Parquet files to upload."
+variable "gcp_processed_data_bucket_name" {
+  description = "GCS bucket name for processed fraud data."
   type        = string
-  default     = "./data"
+  default     = "fraud-processed-data"
+
+  validation {
+    condition     = length(var.gcp_processed_data_bucket_name) > 0
+    error_message = "Bucket name must not be empty."
+  }
 }
 
 variable "gcp_location" {
-  description = "GCP region/location for resources."
+  description = "GCP region for resources."
   type        = string
-  default     = "us-central1"
-}
-
-variable "gcp_kms_key_name" {
-  description = "KMS key name for GCS encryption."
-  type        = string
-  default     = null
+  default     = "europe-west2"
 }
 
 variable "gcp_labels" {
   description = "Labels for GCP resources."
   type        = map(string)
-  default     = {}
+  default     = {
+    team        = "fraud"
+    environment = "dev"
+  }
 }
 
-variable "gcp_vertex_model_display_name" {
-  description = "Display name for Vertex AI model."
-  type        = string
-  default     = "fraud-binary-classifier"
-}
-
-variable "gcp_vertex_model_image" {
-  description = "Container image URI for Vertex AI model."
+variable "organization_id" {
+  description = "GCP organization ID."
   type        = string
 }
 
-variable "gcp_vertex_model_command" {
-  description = "Command for Vertex AI model container."
-  type        = list(string)
-  default     = []
-}
-
-variable "gcp_vertex_model_args" {
-  description = "Arguments for Vertex AI model container."
-  type        = list(string)
-  default     = []
-}
-
-variable "gcp_vertex_model_env" {
-  description = "Environment variables for Vertex AI model container."
-  type        = map(string)
-  default     = {}
-}
-
-variable "gcp_vertex_model_artifact_gcs_uri" {
-  description = "GCS URI for trained model artifact."
-  type        = string
-}
-
-variable "gcp_vertex_model_id" {
-  description = "Vertex AI Model resource ID to deploy (must be created outside Terraform or via gcloud/sdk)."
+variable "billing_account_id" {
+  description = "GCP billing account ID."
   type        = string
 }
