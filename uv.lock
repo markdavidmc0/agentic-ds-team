@@ -78,6 +78,11 @@ dev = [
     { name = "ruff" },
 ]
 
+[package.dev-dependencies]
+dev = [
+    { name = "ruff" },
+]
+
 [package.metadata]
 requires-dist = [
     { name = "diagrams" },
@@ -95,6 +100,9 @@ requires-dist = [
     { name = "tensorflow" },
 ]
 provides-extras = ["dev"]
+
+[package.metadata.requires-dev]
+dev = [{ name = "ruff", specifier = ">=0.11.12" }]
 
 [[package]]
 name = "astunparse"

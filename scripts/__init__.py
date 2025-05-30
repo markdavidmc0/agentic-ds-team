@@ -1,4 +1,5 @@
-"""Architecture diagram generation for Agentic Data Science Team using AWS services."""
+"""AWS architecture diagram for Agentic DS Team."""
+
 from diagrams import Cluster, Diagram
 from diagrams.aws.analytics import Glue
 from diagrams.aws.general import User
@@ -8,7 +9,11 @@ from diagrams.aws.ml import Bedrock, Sagemaker, SagemakerModel
 from diagrams.aws.security import IAMRole
 from diagrams.aws.storage import S3
 
-with Diagram("Agentic Data Science Team for Fraud Detection", filename="../generated-diagrams/bedrock_agentic_ds_team_architecture", show=False):
+with Diagram(
+    "Agentic Data Science Team for Fraud Detection",
+    filename="../generated-diagrams/bedrock_agentic_ds_team_architecture",
+    show=False,
+):
     user = User("Experimenter")
     with Cluster("Bedrock Agentic DS Team"):
         bedrock = Bedrock("Bedrock Agent")
