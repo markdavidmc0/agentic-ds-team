@@ -1,0 +1,28 @@
+# serverless.yml for AWS deployment using serverless framework
+service: streamlit-mnist-app
+
+provider:
+  name: aws
+  runtime: python3.11
+  region: us-east-1
+
+functions:
+  app:
+    handler: streamlit_app.handler
+    timeout: 120
+    memorySize: 2048
+    events:
+      - http:
+          path: /
+          method: any
+      - http:
+          path: /{proxy+}
+          method: any
+
+plugins:
+  - serverless-python-requirements
+
+custom:
+  pythonRequirements:
+    dockerizePip: true
+    fileName: requirements.txt
