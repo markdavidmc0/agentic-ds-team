@@ -31,6 +31,7 @@ dependencies = [
     "google-cloud-aiplatform[adk,agent-engines]<2.0.0,>=1.93.0",
     "absl-py<3.0.0,>=2.2.2",
     "pydantic<3.0.0,>=2.11.3",
+    "opik>=1.8.6",
 ]
 name = "data-science"
 version = "0.1"
