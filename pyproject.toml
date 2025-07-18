@@ -1,57 +1,48 @@
-[project]
-name = "arch-to-iac"
-version = "0.1.0"
-description = "Add your description here"
-readme = "README.md"
-requires-python = ">=3.12"
-dependencies = [
-    "streamlit",
-    "requests",
-    "numpy",
-    "tensorflow",
-    "streamlit-drawable-canvas",
-    "polars",
-    "Diagrams",
-    "google-cloud-storage",
-    "google-cloud-aiplatform",
-]
-
-[project.optional-dependencies]
-dev = [
-    "pytest",
-    "mypy",
-    "pre-commit",
-    "ruff",
-]
-
-[tool.black]
-line-length = 88
-target-version = ["py311", "py312"]
-
-[tool.ruff]
-line-length = 88
-select = ["E", "F", "B", "I", "UP", "C90", "N", "D", "ANN", "S", "A", "C4", "DTZ", "EM", "ERA", "ICN", "INP", "PIE", "PT", "Q", "RET", "RSE", "RUF", "SIM", "TID", "TRY", "ARG", "PL", "NPY", "PD", "PGH", "PTH", "PYI", "RSE", "RUF", "SIM", "TID", "TRY"]
-ignore = ["E501"]
-
-[tool.ruff.format]
-quote-style = "double"
-indent-style = "space"
-line-ending = "auto"
-
-[tool.mypy]
-python_version = "3.12"
-ignore_missing_imports = true
-strict = true
-
 [tool.pytest.ini_options]
-addopts = "-ra -q"
-testpaths = ["tests"]
+console_output_style = "progress"
+addopts = "-vv -s"
+testpaths = ["tests/"]
+log_level = "DEBUG"
+log_cli = true
+log_auto_indent = true
+log_cli_date_format = "%Y-%m-%d %H:%M:%S"
+log_cli_format = "[%(asctime)s] %(levelname)s (%(funcName)s) \t [%(pathname)s:%(lineno)d] %(message)s"
+filterwarnings = [
+    #"error",
+    "ignore::UserWarning",
+    # note the use of single quote below to denote "raw" strings in TOML
+    #'ignore:function ham\(\) is deprecated:DeprecationWarning',
+]
 
-[tool.isort]
-profile = "black"
+[project]
+authors = [
+    {name = "Meltem Subasioglu", email = "msubasioglu@google.com"},
+]
+license = {text = "Apache License 2.0"}
+requires-python = "<4.0,>=3.12"
+dependencies = [
+    "python-dotenv<2.0.0,>=1.0.1",
+    "google-adk<2.0.0,>=1.0.0",
+    "immutabledict<5.0.0,>=4.2.1",
+    "sqlglot<27.0.0,>=26.10.1",
+    "db-dtypes<2.0.0,>=1.4.2",
+    "regex<2025.0.0,>=2024.11.6",
+    "tabulate<1.0.0,>=0.9.0",
+    "google-cloud-aiplatform[adk,agent-engines]<2.0.0,>=1.93.0",
+    "absl-py<3.0.0,>=2.2.2",
+    "pydantic<3.0.0,>=2.11.3",
+]
+name = "data-science"
+version = "0.1"
+description = "Data Science and Data QnA Multi-Agent"
+readme = "README.md"
 
 [dependency-groups]
 dev = [
-    "pytest>=8.3.5",
-    "ruff>=0.11.12",
+    "google-cloud-aiplatform[adk,agent-engines,evaluation]<2.0.0,>=1.93.0",
+    "pytest<9.0.0,>=8.3.5",
+    "pytest-asyncio<1.0.0,>=0.26.0",
 ]
+
+[tool.uv]
+default-groups = []
